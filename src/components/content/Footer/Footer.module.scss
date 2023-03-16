@@ -1,0 +1,76 @@
+@import '../../../styles/main.scss';
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0 1rem 3rem;
+
+  @include breakpoint(md) {
+    align-items: flex-start;
+  }
+
+  &__links {
+    ul {
+      @include breakpoint(md) {
+        display: flex;
+      }
+    }
+
+    li {
+      padding: .5rem 0;
+      font-size: 1.25rem;
+
+      @include breakpoint(md) {
+        padding: 0;
+        margin-right: 2rem;
+        font-size: 1rem;
+      }
+
+      a {
+        color: $dark-gray;
+        text-decoration: none;
+
+        &:hover {
+          color: $darker-gray;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__social {
+    &> ul {
+      display: flex;
+      margin-top: 1rem;
+
+      &> li {
+        margin-right: 1rem;
+      }
+    }
+    @include breakpoint(md) {
+      display: flex;
+      align-items: center;
+    }
+
+    &> span {
+      color: $darker-gray;
+      font-size: 1.25rem;
+      text-align: right;
+    }
+
+    span {
+      @include breakpoint(md) {
+        margin-right: 1rem;
+        color: $dark-gray;
+        font-size: 0.833rem;
+      }
+    }
+
+    > ul {
+      @include breakpoint(md) {
+        margin-top: 3px;
+      }
+    }
+  }
+}

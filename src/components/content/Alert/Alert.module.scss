@@ -1,0 +1,155 @@
+@import '../../../styles/main.scss';
+
+.alert {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: $light-gray;
+
+  @include breakpoint(wd) {
+    margin: 0;
+  }
+}
+
+.alertPrimary {
+  &__left {
+    flex-basis: 40%;
+    padding-right: 1rem;
+
+    @include breakpoint(sm) {
+      flex-basis: 30%;
+    }
+
+    @include breakpoint(md) {
+      flex-basis: 20%;
+    }
+  }
+
+  &__hairline {
+    color: $dark-gray;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: -.07rem;
+
+    @include breakpoint(wd) {
+      font-size: 1rem;
+    }
+  }
+
+  &__title {
+    display: block;
+    color: $dark-gray;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -.05rem;
+
+    @include breakpoint(wd) {
+      font-size: 1.5rem;
+      letter-spacing: 0;
+    }
+  }
+
+  &__right {
+    flex-basis: 60%;
+
+    @include breakpoint(sm) {
+      flex-basis: 70%;
+    }
+
+    @include breakpoint(md) {
+      flex-basis: 80%;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    color: $dark-gray;
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: -.05rem;
+
+    @include breakpoint(wd) {
+      font-size: 1rem;
+    }
+  }
+
+  :global(.icon-button) {
+    display: none;
+
+    @include breakpoint(wd) {
+      display: block;
+      margin-left: 2rem;
+    }
+  }
+}
+
+.alertSecondary {
+  flex-direction: column;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    opacity: .2;
+    pointer-events: none;
+
+    @include breakpoint(md) {
+      top: -230%;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    margin: 0 0 1rem;
+    color: $dark-gray;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+
+    @include breakpoint(md) {
+      margin-bottom: 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__right {
+    width: 100%;
+
+    @include breakpoint(md) {
+      width: auto;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 1rem 0;
+    border: 2px solid $darker-background;
+    background: transparent;
+    color: $darker-gray;
+    font-size: 1.5rem;
+
+    @include breakpoint(md) {
+      width: 16rem;
+    }
+
+    @include breakpoint(wd) {
+      width: 20rem;
+    }
+  }
+}
