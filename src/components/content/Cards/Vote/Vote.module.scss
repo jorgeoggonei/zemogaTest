@@ -2,10 +2,13 @@
 
 .vote {
   align-items: center;
+  box-sizing: border-box;
   display: inline-flex;
   height: 2.5rem;
   justify-content: center;
   width: 2.5rem;
+  border: 2px transparent solid;
+  position: relative;
 
   @include breakpoint(md) {
     height: 2.14rem;
@@ -53,6 +56,18 @@
       background-color: $yellow-negative;
       transform: rotate(180deg);
     }
+  }
+
+  &__selected {
+    border: 2px $white solid;
+  }
+
+  &__overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 }
 

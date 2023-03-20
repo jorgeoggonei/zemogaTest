@@ -21,6 +21,7 @@ const Vote = ({
   action,
   hasBackground,
   isButton,
+  selected,
   style,
   type
 }) =>{
@@ -32,12 +33,17 @@ const Vote = ({
           hasBackground && styles.vote__bg,
           isButton && styles.button,
           styles[`vote__bg--${type}`],
-          styles[`vote--${style}`]
+          styles[`vote--${style}`],
+          selected && styles.vote__selected
         )
       }
-      onClick={action}
     >
       <img src={thumbs} alt='' />
+      <span
+        className={styles.vote__overlay}
+        onClick={action}
+        data-type={type}
+      />
     </span>
   )
 }

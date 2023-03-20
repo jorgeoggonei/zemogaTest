@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 import { PropTypes } from 'prop-types'
 import classNames from 'classnames'
 import styles from './Card.module.scss'
@@ -9,8 +10,9 @@ import thumbsDown from '../../../../images/thumbs-down.svg'
 
 const Card = ({
   category,
-  date,
+  lastUpdated,
   description,
+  id,
   name,
   picture,
   style,
@@ -19,6 +21,41 @@ const Card = ({
   const [votesCount, setVotesCount] = useState(votes)
   const [votesPercentage, setVotesPercentage] = useState({positive: 50, negative: 50})
   const [voted, setVoted] = useState(false)
+  const [selectedVote, setSelectedVote] = useState('')
+
+  const onVoteClick = (e) => {
+    setSelectedVote(e.target.getAttribute('data-type'))
+  }
+
+  const onButtonClick = (e) => {
+    if(voted) {
+      flushSync(() => {
+        setVoted(false)
+        setSelectedVote('')
+      })
+    } else {
+      if (selectedVote) {
+        const dataId = e.target.getAttribute('data-id')
+        let getData = JSON.parse(window.localStorage.getItem('rulings'))
+        let newVotes = {
+          positive: selectedVote === 'positive' ? votesCount.positive + 1 : votesCount.positive,
+          negative: selectedVote === 'negative' ? votesCount.negative + 1 : votesCount.negative,
+        }
+        setVotesCount(newVotes)
+
+        const updateData = getData.map(data => {
+          return data.id === dataId
+          ? {
+            ...data,
+            votes: newVotes
+          }
+          : data
+        })
+        window.localStorage.setItem('rulings', JSON.stringify(updateData))
+        setVoted(true)
+      }
+    }
+  }
 
   useEffect(() => {
     const totalVotes = votesCount.positive + votesCount.negative
@@ -27,6 +64,39 @@ const Card = ({
       negative: Math.round((votesCount.negative*100/totalVotes)*10)/10
     })
   },[votesCount])
+
+  const timeAgo = (date) => {
+    const seconds = Math.floor((new Date() - date) / 1000);
+
+    let interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+      return interval + ' years ago';
+    }
+
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + ' months ago';
+    }
+
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + ' days ago';
+    }
+
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + ' hours ago';
+    }
+
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + ' minutes ago';
+    }
+
+    if(seconds < 10) return 'just now';
+
+    return Math.floor(seconds) + ' seconds ago';
+  }
 
   return (
     <div
@@ -118,7 +188,14 @@ const Card = ({
               </p>
             </div>
           </div>
-          <div className={styles.card__votes}>
+          <div
+            className={
+              classNames(
+                styles.card__votes,
+                styles[`card__votes--${style}`]
+              )
+            }
+          >
             <span
               className={
                 classNames(
@@ -127,11 +204,23 @@ const Card = ({
                 )
               }
             >
-              {voted ? 'Thank you for your vote!' : `${date} in ${category}`}
+              {voted ? 'Thank you for your vote!' : `${timeAgo(new Date(lastUpdated))} in ${category.charAt(0).toUpperCase()}${category.slice(1)}`}
             </span>
-            <div className={styles.card__vote}>
-              <Vote style={style} type='positive' isButton />
-              <Vote style={style} type='negative' isButton />
+            <div
+              className={
+                classNames(
+                  styles.card__vote,
+                  styles[`card__vote--${style}`]
+                )
+              }
+            >
+              {
+                !voted &&
+                  <>
+                    <Vote style={style} type='positive' isButton action={onVoteClick} selected={selectedVote === 'positive'} />
+                    <Vote style={style} type='negative' isButton action={onVoteClick} selected={selectedVote === 'negative'} />
+                  </>
+              }
               <button
                 className={
                   classNames(
@@ -139,6 +228,8 @@ const Card = ({
                     styles[`card__vote__button--${style}`]
                   )
                 }
+                onClick={onButtonClick}
+                data-id={id}
               >
                 {voted ? 'Vote Again' : 'Vote Now'}
               </button>
@@ -207,8 +298,9 @@ const Card = ({
 
 Card.propTypes = {
   category: PropTypes.string,
-  date: PropTypes.string,
+  lastUpdated: PropTypes.string,
   description: PropTypes.string,
+  id: PropTypes.string,
   name: PropTypes.string,
   picture: PropTypes.string,
   style: PropTypes.oneOf(['list', 'grid']),
