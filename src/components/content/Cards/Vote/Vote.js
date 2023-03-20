@@ -32,7 +32,8 @@ const Vote = ({
           styles.vote,
           isButton && styles.button,
           styles[`vote--${style}`],
-          hasOpacity ? styles[`vote--${type}-opacity`] : styles[`vote--${type}`],
+          styles[`vote--${type}`],
+          hasOpacity && styles[`vote--${type}-opacity`],
           selected && styles.vote__selected
         )
       }
