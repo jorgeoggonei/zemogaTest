@@ -1,0 +1,351 @@
+@import '../../../../styles/main.scss';
+
+.card {
+  display: block;
+  max-width: 25rem;
+  position: relative;
+
+  &--grid {
+    @include breakpoint(md) {
+      flex-basis: 49%;
+      max-width: none;
+    }
+
+    @include breakpoint(wd) {
+      flex-basis: auto;
+     width: 19.33rem;
+    }
+  }
+
+  &--list {
+    @include breakpoint(md) {
+      max-width: none;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    display: block;
+    position: relative;
+
+    &--grid {
+      img {
+        @include breakpoint(md) {
+          width: 100%;
+        }
+      }
+    }
+
+    img {
+      display: block;
+    }
+
+    &__shadow {
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.6) 100%);
+      bottom: 0;
+      height:17.9rem;
+      left: 0;
+      position: absolute;
+      width: 100%;
+
+      &--list {
+        @include breakpoint(md) {
+          background: linear-gradient(90deg, rgba(0, 0, 0, 0.0001) 0%, #888888 19.79%, #666666 50%, rgba(51, 51, 51, 0.6) 71.88%);
+          height: 100%;
+          left: auto;
+          right: 0;
+          width: calc(100% - 2.14rem);
+        }
+      }
+    }
+  }
+
+  &__info {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+
+    &--list {
+      @include breakpoint(md) {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+    }
+
+    &__top {
+      display: flex;
+      flex-direction: column;
+      padding-right: 2.5rem;
+
+      @include breakpoint(md) {
+        padding-right: 2.42rem;
+      }
+
+      @include breakpoint(wd) {
+        padding-right: 1.88rem;
+      }
+
+      &--list {
+        @include breakpoint(md) {
+          flex-direction: row;
+          justify-content: space-between;
+          max-width: none;
+          padding-right: 0.85rem;
+        }
+      }
+    }
+
+    &__bottom {
+      position: relative;
+      width: 100%;
+    }
+  }
+
+  &__person {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__opinion {
+    margin-right: 0.08rem;
+    min-width: 2.5rem;
+
+    &--list {
+      @include breakpoint(md) {
+        margin-right: 8.57rem;
+      }
+
+      @include breakpoint(wd) {
+        margin-right: 11.8rem;
+      }
+    }
+
+    &--grid {
+      @include breakpoint(md) {
+        min-width: 2.14rem;
+        margin-right: 0.42rem;
+      }
+    }
+  }
+
+  &__name {
+    color: $white;
+    display: -webkit-box;
+    font-size: 2.5rem;
+    line-height: 3rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    @include breakpoint(md) {
+      font-size: 2.14rem;
+      line-height: 2.57rem;
+    }
+
+    @include breakpoint(wd) {
+      margin-bottom: 0.38rem;
+      line-height: 2.4rem;
+    }
+
+    &--list {
+      @include breakpoint(md) {
+        font-size: 2rem;
+        line-height: 2.8rem;
+      }
+
+      @include breakpoint(wd) {
+        line-height: 3.5rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__description {
+    color: $white;
+    display: -webkit-box;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    @include breakpoint(md) {
+      font-size: 1.07rem;
+      line-height: 1.28rem;
+      padding-right: 2.07rem;
+    }
+
+    @include breakpoint(wd) {
+      font-size: 0.83rem;
+      line-height: 1rem;
+      margin-bottom: 0.66rem;
+    }
+
+    &--list {
+      @include breakpoint(md) {
+        font-size: 1rem;
+        line-height: 1.2rem;
+      }
+
+      @include breakpoint(wd) {
+        font-size: 1rem;
+        line-height: 1.2rem;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__votes {
+    align-items: end;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(md) {
+      margin-right: 0.85rem;
+    }
+  }
+
+  &__date {
+    color: $white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.83rem;
+
+    @include breakpoint(md) {
+      font-size: 0.85rem;
+    }
+
+    @include breakpoint(wd) {
+      font-size: 0.66rem;
+    }
+
+    &--list {
+      @include breakpoint(md) {
+        margin-top: 0.57rem;
+      }
+
+      @include breakpoint(wd) {
+        font-size: 0.83rem;
+      }
+    }
+  }
+
+  &__vote {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    &__button {
+      background: $darker-background;
+      border: 1px solid $white;
+      color: $white;
+      font-size: 1.25rem;
+      height: 3.16rem;
+      width: 8.916rem;
+
+      @include breakpoint(md) {
+        font-size: 1.07rem;
+        height: 2.71rem;
+        width: 7.64rem;
+      }
+
+      @include breakpoint(wd) {
+        font-size: 0.83rem;
+        height: 2.11rem;
+        width: 5.94rem;
+      }
+
+      &--list {
+        @include breakpoint(wd) {
+          font-size: 1rem;
+          line-height: 1.2rem;
+        }
+      }
+    }
+  }
+}
+
+.bar {
+  display: flex;
+  flex-direction: row;
+  height: 3rem;
+  position: relative;
+
+  @include breakpoint(md) {
+    height: 2.57rem;
+  }
+
+  @include breakpoint(wd) {
+    height: 2rem;
+  }
+
+  &--list {
+    height: 3rem;
+  }
+
+  &__positive {
+    background: rgba($green-positive, 0.6);
+  }
+
+  &__negative {
+    background: rgba($yellow-negative, 0.6);
+  }
+
+  &__info {
+    bottom: 0.58rem;
+    color: $white;
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    gap: 0.5rem;
+    position: absolute;
+
+    @include breakpoint(md) {
+      bottom: 0.5rem;
+      font-size: 1.28rem;
+    }
+
+    @include breakpoint(wd) {
+      font-size: 1rem;
+    }
+
+    &--list {
+      @include breakpoint(wd) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &__positive {
+      left: 1rem;
+    }
+
+    &__negative {
+      right: 1rem;
+    }
+
+    &__icon {
+      width: 1.25rem;
+
+      @include breakpoint(md) {
+        width: 1.07rem;
+      }
+
+      @include breakpoint(wd) {
+        width: 0.83rem;
+      }
+
+      &--list {
+        @include breakpoint(wd) {
+          width: 1.24rem;
+        }
+      }
+    }
+  }
+}

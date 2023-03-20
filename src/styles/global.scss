@@ -39,6 +39,10 @@ ul {
   list-style: none;
 }
 
+p {
+  margin: 0 0 0.75rem;
+}
+
 hr[role="separator"] {
   border: 0 none;
   border-bottom: 2px dotted $dark-gray;
@@ -106,6 +110,10 @@ hr[role="separator"] {
 main[role="main"] {
   padding: 0 1rem;
   margin-top: 2rem;
+
+  @include breakpoint(wd) {
+    padding: 0;
+  }
 
   h2,
   h3,

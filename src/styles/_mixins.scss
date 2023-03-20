@@ -11,3 +11,9 @@
     }
   }
 }
+
+/* Rem Mixin */ // TODO: IMPROVE TO FIT WITH BODY FONT SIZE
+@function rem($value) {
+  $remValue: calc($value / 12) + rem;
+  @return $remValue;
+}

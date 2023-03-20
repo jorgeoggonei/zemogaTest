@@ -1,0 +1,25 @@
+@import '../../../styles/main.scss';
+
+.rulings {
+  &__top {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.view {
+  border: 2px solid $darker-gray;
+  display: none;
+  font-size: 0.96rem;
+  padding: 0.645rem 4.54rem;
+
+  @include breakpoint(md) {
+    display: block;
+  }
+
+  @include breakpoint(md) {
+    padding: 0.28rem 3.25rem;
+  }
+}

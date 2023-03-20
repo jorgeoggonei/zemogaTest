@@ -1,0 +1,25 @@
+@import '../../../styles/main.scss';
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: scroll;
+
+  @include breakpoint(md) {
+    overflow: inherit;
+  }
+
+  &--list {
+    @include breakpoint(md) {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+
+  &--grid {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

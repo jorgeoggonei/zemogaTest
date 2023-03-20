@@ -3,6 +3,8 @@ import React from 'react'
 import Header from './components/content/Header'
 import Footer from './components/content/Footer'
 import Banner from './components/content/Banner'
+import Alert from './components/content/Alert/Alert'
+import Rulings from './components/content/Rulings'
 
 import smallBanner from './images/pope-francis.png'
 import largeBanner from './images/pope-francis.@2x.png'
@@ -10,7 +12,6 @@ import peopleSmall from './images/bg-people.png'
 import peopleLarge from './images/bg-people.@2x.png'
 
 import './styles/global.scss'
-import Alert from './components/content/Alert/Alert'
 
 const App = () =>{
   return (
@@ -42,7 +43,9 @@ const App = () =>{
           }}
         />
         <main role="main">
-          aaa
+          <Rulings
+            title={'Previous Rulings'}
+          />
         </main>
         <Alert
           type='secondary'

@@ -1,0 +1,61 @@
+@import '../../../../styles/main.scss';
+
+.vote {
+  align-items: center;
+  display: inline-flex;
+  height: 2.5rem;
+  justify-content: center;
+  width: 2.5rem;
+
+  @include breakpoint(md) {
+    height: 2.14rem;
+    width: 2.14rem;
+  }
+
+  @include breakpoint(wd) {
+    height: 1.66rem;
+    width: 1.66rem;
+
+    img {
+      height: 1.33rem;
+      width: 1.33rem;
+    }
+  }
+
+  &--list {
+    @include breakpoint(wd) {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+
+  img {
+    height: 1.33rem;
+    width: 1.33rem;
+
+    @include breakpoint(md) {
+      height: 1.14rem;
+      width: 1.14rem;
+    }
+
+    @include breakpoint(wd) {
+      height: 0.88rem;
+      width: 0.88rem;
+    }
+  }
+
+  &__bg {
+    &--positive {
+      background-color: $green-positive;
+    }
+
+    &--negative {
+      background-color: $yellow-negative;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.button {
+  cursor: pointer;
+}
