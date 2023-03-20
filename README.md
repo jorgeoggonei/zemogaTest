@@ -1,6 +1,6 @@
 # Zemoga UI Test - Jorge Enrique Santos Oggonei
 
-Hello. This is my test to apply as a front End developer in you company
+Hello. This is my test to apply as a front End developer in Zemoga
 
 ## Installation
 
@@ -10,7 +10,7 @@ To run the project please download this repo
 git clone https://github.com/jorgeoggonei/zemogaTest.git
 ```
 
-Once you've donloaded it, install the project dependencies. In the root folder run 
+Once you've donloaded it, install the project dependencies. In the root folder run
 
 ```bash
 npm install
