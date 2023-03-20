@@ -4,16 +4,24 @@ Hello. This is my test to apply as a front End developer in Zemoga
 
 ## Installation
 
-To run the project please download this repo
+To run the project please download this repo. You need to have at least the node version **v16.13.1**
 
 ```bash
 git clone https://github.com/jorgeoggonei/zemogaTest.git
 ```
 
-Once you've donloaded it, install the project dependencies. In the root folder run
+Once you've donloaded it, install the project dependencies. In the root folder run:
 
 ```bash
 npm install
+```
+
+## Run the project
+
+To run the project, use the next command in the root folder:
+
+```bash
+npm start
 ```
 
 ## What you'll find in the project
