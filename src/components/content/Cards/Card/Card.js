@@ -8,6 +8,19 @@ import Vote from '../Vote/Vote'
 import thumbsUp from '../../../../images/thumbs-up.svg'
 import thumbsDown from '../../../../images/thumbs-down.svg'
 
+/**
+ * This component shows the Card used for every Rulling
+ * @param category {string}
+ * @param lastUpdated {string}
+ * @param description {string}
+ * @param id {string}
+ * @param name {string}
+ * @param picture {string}
+ * @param style {string}
+ * @param votes {object}
+ * @returns Card showing the ruling information
+*/
+
 const Card = ({
   category,
   lastUpdated,
@@ -163,7 +176,11 @@ const Card = ({
               }
             >
               {votesCount.positive !== votesCount.negative &&
-                <Vote style={style} type={votesCount.positive > votesCount.negative ? 'positive' : 'negative'} />}
+                <Vote
+                  hasOpacity
+                  style={style}
+                  type={votesCount.positive > votesCount.negative ? 'positive' : 'negative'}
+                />}
             </div>
             <div>
               <p

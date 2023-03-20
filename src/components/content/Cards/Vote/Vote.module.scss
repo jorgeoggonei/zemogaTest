@@ -47,16 +47,24 @@
     }
   }
 
-  &__bg {
-    &--positive {
-      background-color: $green-positive;
-    }
 
-    &--negative {
-      background-color: $yellow-negative;
-      transform: rotate(180deg);
-    }
+  &--positive {
+    background-color: $green-positive;
   }
+
+  &--positive-opacity {
+    background: rgba($green-positive, 0.8);
+  }
+
+  &--negative {
+    background-color: $yellow-negative;
+    transform: rotate(180deg);
+  }
+
+  &--negative-opacity {
+    background: rgba($yellow-negative, 0.8);
+  }
+
 
   &__selected {
     border: 2px $white solid;

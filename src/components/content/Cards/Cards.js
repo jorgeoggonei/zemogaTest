@@ -6,6 +6,12 @@ import styles from './Cards.module.scss'
 import Card from './Card/Card'
 import data from '../../../data/data.json'
 
+/**
+ * This component shows the container for the cards container
+ * @param style {string}
+ * @returns Component container
+*/
+
 const Cards = ({
   style
 }) =>{

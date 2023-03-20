@@ -9,17 +9,17 @@ import thumbs from '../../../../images/thumbs-up.svg'
 /**
  * This component shows an icon wich can be clickable if a prop is passed
  * @param action {function}
- * @param hasBackground {boolean}
+ * @param hasOpacity {boolean}
  * @param isButton {boolean}
+ * @param selected {boolean}
  * @param style {string}
  * @param type {string}
  * @returns Component with an icon
 */
 
-
 const Vote = ({
   action,
-  hasBackground,
+  hasOpacity,
   isButton,
   selected,
   style,
@@ -30,10 +30,9 @@ const Vote = ({
       className={
         classNames(
           styles.vote,
-          hasBackground && styles.vote__bg,
           isButton && styles.button,
-          styles[`vote__bg--${type}`],
           styles[`vote--${style}`],
+          hasOpacity ? styles[`vote--${type}-opacity`] : styles[`vote--${type}`],
           selected && styles.vote__selected
         )
       }
@@ -50,15 +49,18 @@ const Vote = ({
 
 Vote.propTypes = {
   action: PropTypes.func,
-  hasBackground: PropTypes.bool,
+  hasOpacity: PropTypes.bool,
   isButton: PropTypes.bool,
+  selected: PropTypes.bool,
   style: PropTypes.oneOf(['list', 'grid']),
   type: PropTypes.oneOf(['positive', 'negative']).isRequired,
 }
 
 Vote.defaultProps = {
-  hasBackground: false,
-  isButton: false
+  hasOpacity: false,
+  isButton: false,
+  selected: false,
+  style: 'list'
 }
 
 export default Vote
