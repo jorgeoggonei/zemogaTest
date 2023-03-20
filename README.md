@@ -37,4 +37,4 @@ The main JSON file can be found in **src/data/data.json**
 
 ## How the project works
 
-When the page loads, it will check if localStorage has **rulings** key. If it exist the application will use that information. Otherwise, the json file will be loaded and added to the localstorage.
+When the page loads, it will check if localStorage has **rulings** key. If it exists, the application will use that information. Otherwise, the json file will be loaded and added to the localstorage.
