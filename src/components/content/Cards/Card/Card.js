@@ -132,14 +132,14 @@ const Card = ({
           style === 'list'
           ? <picture>
               <source
-                srcSet={`images/${picture}-desktop.png`}
+                srcSet={`images/${picture}-desktop.jpg`}
                 media='(min-width: 1100px)'/>
               <source
-                srcSet={`images/${picture}-tablet.png`}
+                srcSet={`images/${picture}-tablet.jpg`}
                 media='(min-width: 768px)'/>
-              <img alt='' src={`images/${picture}.png`}/>
+              <img alt='' src={`images/${picture}.jpg`}/>
             </picture>
-          : <img alt='' src={`images/${picture}.png`}/>
+          : <img alt='' src={`images/${picture}.jpg`}/>
         }
         <div
           className={
